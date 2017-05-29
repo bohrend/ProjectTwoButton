@@ -1,6 +1,7 @@
 package com.example.barend.projecttwobutton.datatypes;
 
-import android.provider.Telephony;
+import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
+import com.example.barend.projecttwobutton.helpers.JsonHelper;
 
 import org.json.JSONObject;
 
@@ -66,6 +67,14 @@ public class Address {
     //region to and from api
     public static Address fromApi(JSONObject jsonObject) {
         Address toReturn = new Address();
+        JsonHelper jsonHelper = new JsonHelper(jsonObject);
+
+        toReturn.setStreet(jsonHelper.getString(JsonKeys.STREET));
+        toReturn.setSuite(jsonHelper.getString(JsonKeys.SUITE));
+        toReturn.setCity(jsonHelper.getString(JsonKeys.CITY));
+        toReturn.setZipcode(jsonHelper.getString(JsonKeys.ZIPCODE));
+
+        toReturn.setGeo(Geo.fromApi(jsonHelper.getObject(JsonKeys.GEO)));
 
         return toReturn;
     }

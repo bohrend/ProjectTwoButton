@@ -1,5 +1,8 @@
 package com.example.barend.projecttwobutton.datatypes;
 
+import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
+import com.example.barend.projecttwobutton.helpers.JsonHelper;
+
 import org.json.JSONObject;
 
 /**
@@ -36,6 +39,11 @@ public class Geo {
     //region to and from api
     public static Geo fromApi(JSONObject jsonObject) {
         Geo toReturn = new Geo();
+
+        JsonHelper jsonHelper = new JsonHelper(jsonObject);
+
+        toReturn.setLat(jsonHelper.getString(JsonKeys.LAT));
+        toReturn.setLng(jsonHelper.getString(JsonKeys.LNG));
 
         return toReturn;
     }

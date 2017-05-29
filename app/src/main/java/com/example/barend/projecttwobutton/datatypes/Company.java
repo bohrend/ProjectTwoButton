@@ -1,5 +1,8 @@
 package com.example.barend.projecttwobutton.datatypes;
 
+import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
+import com.example.barend.projecttwobutton.helpers.JsonHelper;
+
 import org.json.JSONObject;
 
 /**
@@ -46,6 +49,11 @@ public class Company {
     //region to and from api
     public static Company fromApi(JSONObject jsonObject) {
         Company toReturn = new Company();
+        JsonHelper jsonHelper = new JsonHelper(jsonObject);
+
+        toReturn.setName(jsonHelper.getString(JsonKeys.COMPANY_NAME));
+        toReturn.setCatchPhrase(jsonHelper.getString(JsonKeys.CATCHPHRASE));
+        toReturn.setBullStuff(jsonHelper.getString(JsonKeys.BULLSTUFF));
 
         return toReturn;
     }

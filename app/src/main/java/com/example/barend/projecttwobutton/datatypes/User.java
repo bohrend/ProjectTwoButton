@@ -4,6 +4,7 @@ import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -95,12 +96,22 @@ public class User {
 
     //region to and from api
 
+    //used to convert json into user object, using jsonHelper util
     private static User fromApi(JSONObject jsonObject) {
         User toReturn = new User();
         JsonHelper jsonHelper = new JsonHelper(jsonObject);
 
-        jsonHelper.getString(JsonKeys.NAME)
+        toReturn.setId(jsonHelper.getInt(JsonKeys.ID));
+        toReturn.setName(jsonHelper.getString(JsonKeys.NAME));
+        toReturn.setUsername(jsonHelper.getString(JsonKeys.USERNAME));
+        toReturn.setEmail(jsonHelper.getString(JsonKeys.EMAIL));
 
+        toReturn.setAddress(Address.fromApi(jsonHelper.getObject(JsonKeys.ADDRESS)));
+
+        toReturn.setPhone(jsonHelper.getString(JsonKeys.PHONE));
+        toReturn.setWebsite(jsonHelper.getString(JsonKeys.WEBSITE));
+
+        toReturn.setCompany(Company.fromApi(jsonHelper.getObject(JsonKeys.COMPANY)));
 
         return toReturn;
     }
@@ -110,8 +121,12 @@ public class User {
         User user;
 
         for (int i = 0; i < jsonArray.length(); i++) {
-            user = fromApi(jsonArray.getJSONObject(i));
-            toReturn.add(user);
+            try {
+                user = fromApi(jsonArray.getJSONObject(i));
+                toReturn.add(user);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
         return toReturn;
     }

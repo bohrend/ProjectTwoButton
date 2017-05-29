@@ -1,5 +1,6 @@
 package com.example.barend.projecttwobutton.datatypes;
 
+import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
 
 import org.json.JSONArray;
@@ -15,6 +16,7 @@ public class User {
 
     //region members
     private int mId;
+    private String mName;
     private String mUsername;
     private String mEmail;
     private Address mAddress;
@@ -24,62 +26,70 @@ public class User {
     //endregion
 
     //region getters and setters
-    public int getmId() {
+
+    public int getId() {
         return mId;
     }
 
-    public void setmId(int mId) {
-        this.mId = mId;
+    public void setId(int id) {
+        mId = id;
     }
 
-    public String getmUsername() {
+    public String getName() {
+        return mName;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public String getUsername() {
         return mUsername;
     }
 
-    public void setmUsername(String mUsername) {
-        this.mUsername = mUsername;
+    public void setUsername(String username) {
+        mUsername = username;
     }
 
-    public String getmEmail() {
+    public String getEmail() {
         return mEmail;
     }
 
-    public void setmEmail(String mEmail) {
-        this.mEmail = mEmail;
+    public void setEmail(String email) {
+        mEmail = email;
     }
 
-    public Address getmAddress() {
+    public Address getAddress() {
         return mAddress;
     }
 
-    public void setmAddress(Address mAddress) {
-        this.mAddress = mAddress;
+    public void setAddress(Address address) {
+        mAddress = address;
     }
 
-    public String getmPhone() {
+    public String getPhone() {
         return mPhone;
     }
 
-    public void setmPhone(String mPhone) {
-        this.mPhone = mPhone;
+    public void setPhone(String phone) {
+        mPhone = phone;
     }
 
-    public String getmWebsite() {
+    public String getWebsite() {
         return mWebsite;
     }
 
-    public void setmWebsite(String mWebsite) {
-        this.mWebsite = mWebsite;
+    public void setWebsite(String website) {
+        mWebsite = website;
     }
 
-    public Company getmCompany() {
+    public Company getCompany() {
         return mCompany;
     }
 
-    public void setmCompany(Company mCompany) {
-        this.mCompany = mCompany;
+    public void setCompany(Company company) {
+        mCompany = company;
     }
-
 
     //endregion
 
@@ -89,7 +99,8 @@ public class User {
         User toReturn = new User();
         JsonHelper jsonHelper = new JsonHelper(jsonObject);
 
-        jsonHelper.isValid()
+        jsonHelper.getString(JsonKeys.NAME)
+
 
         return toReturn;
     }

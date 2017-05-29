@@ -16,29 +16,30 @@ public class Company {
 
     //region getters and setters
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setName(String name) {
+        mName = name;
     }
 
-    public String getmCatchPhrase() {
+    public String getCatchPhrase() {
         return mCatchPhrase;
     }
 
-    public void setmCatchPhrase(String mCatchPhrase) {
-        this.mCatchPhrase = mCatchPhrase;
+    public void setCatchPhrase(String catchPhrase) {
+        mCatchPhrase = catchPhrase;
     }
 
-    public String getmBullStuff() {
+    public String getBullStuff() {
         return mBullStuff;
     }
 
-    public void setmBullStuff(String mBullStuff) {
-        this.mBullStuff = mBullStuff;
+    public void setBullStuff(String bullStuff) {
+        mBullStuff = bullStuff;
     }
+
 
     //endregion
 

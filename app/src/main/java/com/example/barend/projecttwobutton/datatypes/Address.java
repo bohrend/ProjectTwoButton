@@ -20,45 +20,46 @@ public class Address {
 
     //region getters and setters
 
-    public String getmStreet() {
+    public String getStreet() {
         return mStreet;
     }
 
-    public void setmStreet(String mStreet) {
-        this.mStreet = mStreet;
+    public void setStreet(String street) {
+        mStreet = street;
     }
 
-    public String getmSuite() {
+    public String getSuite() {
         return mSuite;
     }
 
-    public void setmSuite(String mSuite) {
-        this.mSuite = mSuite;
+    public void setSuite(String suite) {
+        mSuite = suite;
     }
 
-    public String getmCity() {
+    public String getCity() {
         return mCity;
     }
 
-    public void setmCity(String mCity) {
-        this.mCity = mCity;
+    public void setCity(String city) {
+        mCity = city;
     }
 
-    public String getmZipcode() {
+    public String getZipcode() {
         return mZipcode;
     }
 
-    public void setmZipcode(String mZipcode) {
-        this.mZipcode = mZipcode;
+    public void setZipcode(String zipcode) {
+        mZipcode = zipcode;
     }
 
-    public Geo getmGeo() {
+    public Geo getGeo() {
         return mGeo;
     }
 
-    public void setmGeo(Geo mGeo) {
-        this.mGeo = mGeo;
+    public void setGeo(Geo geo) {
+        mGeo = geo;
     }
+
 
     //endregion
 

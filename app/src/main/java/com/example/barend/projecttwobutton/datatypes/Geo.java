@@ -14,21 +14,23 @@ public class Geo {
     //endregion
 
     //region getters and setters
-    public String getmLat() {
+
+    public String getLat() {
         return mLat;
     }
 
-    public void setmLat(String mLat) {
-        this.mLat = mLat;
+    public void setLat(String lat) {
+        mLat = lat;
     }
 
-    public String getmLng() {
+    public String getLng() {
         return mLng;
     }
 
-    public void setmLng(String mLng) {
-        this.mLng = mLng;
+    public void setLng(String lng) {
+        mLng = lng;
     }
+
     //endregion
 
     //region to and from api

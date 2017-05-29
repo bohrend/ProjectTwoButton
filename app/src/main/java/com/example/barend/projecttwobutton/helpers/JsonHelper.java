@@ -76,7 +76,7 @@ public class JsonHelper {
     }
 
     private <T> T get(String name, T defaultValue){
-        if(mObject != null){
+        if(isValid()){
             if(mObject.has(name)){
                 try {
                     return (T) mObject.get(name);
@@ -95,7 +95,7 @@ public class JsonHelper {
         }
     }
 
-    public boolean isValid(){
+    private boolean isValid(){
         if(mObject != null){
             return true;
         } else {

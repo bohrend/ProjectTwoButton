@@ -1,5 +1,8 @@
 package com.example.barend.projecttwobutton.datatypes;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
 
@@ -9,12 +12,18 @@ import org.json.JSONObject;
  * Created by Barend on 2017/05/29.
  */
 
-public class Company {
+public class Company implements Parcelable {
 
     //region members
     private String mName;
     private String mCatchPhrase;
     private String mBullStuff;
+    //endregion
+
+    //region contructors
+    public Company(){};
+
+
     //endregion
 
     //region getters and setters
@@ -68,6 +77,39 @@ public class Company {
                 ", mCatchPhrase='" + mCatchPhrase + '\'' +
                 ", mBullStuff='" + mBullStuff + '\'' +
                 '}';
+    }
+
+    //endregion
+
+    //region parcelable related (used for passing datatype around in app
+    protected Company(Parcel in) {
+        mName = in.readString();
+        mCatchPhrase = in.readString();
+        mBullStuff = in.readString();
+    }
+
+    public static final Creator<Company> CREATOR = new Creator<Company>() {
+        @Override
+        public Company createFromParcel(Parcel in) {
+            return new Company(in);
+        }
+
+        @Override
+        public Company[] newArray(int size) {
+            return new Company[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(mName);
+        parcel.writeString(mCatchPhrase);
+        parcel.writeString(mBullStuff);
     }
 
     //endregion

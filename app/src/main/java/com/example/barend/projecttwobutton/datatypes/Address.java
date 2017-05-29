@@ -1,5 +1,8 @@
 package com.example.barend.projecttwobutton.datatypes;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
 
@@ -9,7 +12,7 @@ import org.json.JSONObject;
  * Created by Barend on 2017/05/29.
  */
 
-public class Address {
+public class Address implements Parcelable {
 
     //region members
     private String mStreet;
@@ -17,6 +20,12 @@ public class Address {
     private String mCity;
     private String mZipcode;
     private Geo mGeo;
+    //endregion
+
+    //region contructors
+    public Address() {
+    }
+    ;
     //endregion
 
     //region getters and setters
@@ -90,6 +99,44 @@ public class Address {
                 ", mZipcode='" + mZipcode + '\'' +
                 ", mGeo=" + mGeo +
                 '}';
+    }
+
+    //endregion
+
+    //region parcelable related (used for passing datatype around in app
+
+    protected Address(Parcel in) {
+        mStreet = in.readString();
+        mSuite = in.readString();
+        mCity = in.readString();
+        mZipcode = in.readString();
+        mGeo = in.readParcelable(Geo.class.getClassLoader());
+    }
+
+    public static final Creator<Address> CREATOR = new Creator<Address>() {
+        @Override
+        public Address createFromParcel(Parcel in) {
+            return new Address(in);
+        }
+
+        @Override
+        public Address[] newArray(int size) {
+            return new Address[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(mStreet);
+        parcel.writeString(mSuite);
+        parcel.writeString(mCity);
+        parcel.writeString(mZipcode);
+        parcel.writeParcelable(mGeo, i);
     }
     //endregion
 }

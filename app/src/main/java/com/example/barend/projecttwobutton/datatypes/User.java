@@ -1,5 +1,8 @@
 package com.example.barend.projecttwobutton.datatypes;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
 
@@ -13,7 +16,7 @@ import java.util.ArrayList;
  * Created by Barend on 2017/05/29.
  */
 
-public class User {
+public class User implements Parcelable {
 
     //region members
     private int mId;
@@ -26,8 +29,14 @@ public class User {
     private Company mCompany;
     //endregion
 
-    //region getters and setters
+    //region constructors
+    public User() {
+    }
 
+    ;
+    //endregion
+
+    //region getters and setters
     public int getId() {
         return mId;
     }
@@ -145,6 +154,47 @@ public class User {
                 ", mCompany=" + mCompany +
                 '}';
     }
+    //endregion
+
+    //region parcelable related (used for passing datatype around in app
+
+    protected User(Parcel in) {
+        mId = in.readInt();
+        mName = in.readString();
+        mUsername = in.readString();
+        mEmail = in.readString();
+        mPhone = in.readString();
+        mWebsite = in.readString();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(mId);
+        parcel.writeString(mName);
+        parcel.writeString(mUsername);
+        parcel.writeString(mEmail);
+        parcel.writeString(mPhone);
+        parcel.writeString(mWebsite);
+    }
+
+
     //endregion
 
 }

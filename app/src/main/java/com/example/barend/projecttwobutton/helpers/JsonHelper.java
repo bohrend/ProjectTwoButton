@@ -1,5 +1,7 @@
 package com.example.barend.projecttwobutton.helpers;
 
+import android.util.Log;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
@@ -33,7 +35,7 @@ public class JsonHelper {
 
     public String getString(String name, String defaultValue) {
         try {
-            return get(name, defaultValue);
+            return mObject.get(name).getAsString();
         } catch (ClassCastException e) {
             return defaultValue;
         }
@@ -45,7 +47,7 @@ public class JsonHelper {
 
     public int getInt(String name, int defaultValue) {
         try {
-            return get(name, defaultValue);
+            return mObject.get(name).getAsInt();
         } catch (ClassCastException e) {
             return defaultValue;
         }
@@ -76,34 +78,6 @@ public class JsonHelper {
             }
         } else {
             return null;
-        }
-    }
-
-    private <T> T get(String name, T defaultValue) {
-        if (isValid()) {
-            if (mObject.has(name)) {
-                try {
-                    return (T) mObject.get(name);
-                } catch (ClassCastException e) {
-                    e.printStackTrace();
-                    return defaultValue;
-                } catch (JsonParseException e) {
-                    e.printStackTrace();
-                    return defaultValue;
-                }
-            } else {
-                return defaultValue;
-            }
-        } else {
-            return defaultValue;
-        }
-    }
-
-    private boolean isValid() {
-        if (mObject != null) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

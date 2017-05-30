@@ -2,6 +2,7 @@ package com.example.barend.projecttwobutton.datatypes;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import com.example.barend.projecttwobutton.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
@@ -9,9 +10,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -20,6 +18,8 @@ import java.util.ArrayList;
  */
 
 public class User implements Parcelable {
+
+    private static final String TAG = "User";
 
     //region members
     private int mId;

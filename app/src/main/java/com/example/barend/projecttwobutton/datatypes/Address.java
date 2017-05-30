@@ -7,7 +7,6 @@ import com.example.barend.projecttwobutton.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
 import com.google.gson.JsonObject;
 
-import org.json.JSONObject;
 
 /**
  * Created by Barend on 2017/05/29.

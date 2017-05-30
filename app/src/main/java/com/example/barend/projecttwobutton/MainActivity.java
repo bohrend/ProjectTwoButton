@@ -6,9 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.barend.projecttwobutton.backend.ApiInterface;
-import com.example.barend.projecttwobutton.backend.services.UserService;
-import com.example.barend.projecttwobutton.datatypes.User;
+
+import com.example.barend.projecttwobutton.ui.activities.UserListActivity;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Log.i(TAG, "OnMakeCallClickListener+onClick");
-
-            UserService.getUsers(MainActivity.this, new OnGetUsersApiInterface());
+            UserListActivity.startActivity(MainActivity.this);
         }
     }
 
@@ -51,38 +51,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Log.i(TAG, "OnShowInfoClickListener+onClick");
-        }
-    }
-
-
-    private class OnGetUsersApiInterface extends ApiInterface {
-
-        @Override
-        public void onStart() {
-            Log.i(TAG, "onStart()");
-        }
-
-        @Override
-        public void onComplete() {
-            Log.i(TAG, "onComplete()");
-        }
-
-        @Override
-        public void onSuccess() {
-            Log.i(TAG, "onSuccess()");
-
-            User.fromApi(getJsonArray());
-        }
-
-        @Override
-        public void onFail() {
-            Log.i(TAG, "onFail()");
-
-        }
-
-        @Override
-        public void onNoConnection() {
-            Log.i(TAG, "onNoConnection()");
         }
     }
 

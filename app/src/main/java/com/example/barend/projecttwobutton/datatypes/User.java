@@ -5,6 +5,9 @@ import android.os.Parcelable;
 
 import com.example.barend.projecttwobutton.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -106,7 +109,7 @@ public class User implements Parcelable {
     //region to and from api
 
     //used to convert json into user object, using jsonHelper util
-    private static User fromApi(JSONObject jsonObject) {
+    private static User fromApi(JsonObject jsonObject) {
         User toReturn = new User();
         JsonHelper jsonHelper = new JsonHelper(jsonObject);
 
@@ -125,15 +128,15 @@ public class User implements Parcelable {
         return toReturn;
     }
 
-    public static ArrayList<User> fromApi(JSONArray jsonArray) {
+    public static ArrayList<User> fromApi(JsonArray jsonArray) {
         ArrayList<User> toReturn = new ArrayList<>();
         User user;
 
-        for (int i = 0; i < jsonArray.length(); i++) {
+        for (int i = 0; i < jsonArray.size(); i++) {
             try {
-                user = fromApi(jsonArray.getJSONObject(i));
+                user = fromApi(jsonArray.get(i).getAsJsonObject());
                 toReturn.add(user);
-            } catch (JSONException e) {
+            } catch (JsonParseException e) {
                 e.printStackTrace();
             }
         }

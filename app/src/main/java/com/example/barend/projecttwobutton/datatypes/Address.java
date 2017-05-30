@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.example.barend.projecttwobutton.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
+import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
 
@@ -25,6 +26,7 @@ public class Address implements Parcelable {
     //region contructors
     public Address() {
     }
+
     ;
     //endregion
 
@@ -74,7 +76,7 @@ public class Address implements Parcelable {
     //endregion
 
     //region to and from api
-    public static Address fromApi(JSONObject jsonObject) {
+    public static Address fromApi(JsonObject jsonObject) {
         Address toReturn = new Address();
         JsonHelper jsonHelper = new JsonHelper(jsonObject);
 

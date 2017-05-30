@@ -1,4 +1,4 @@
-package com.example.barend.projecttwobutton.backend.keys;
+package com.example.barend.projecttwobutton.keys;
 
 /**
  * Created by Barend on 2017/05/29.

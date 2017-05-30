@@ -10,8 +10,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.barend.projecttwobutton.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_make_call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/text_make_call" />
+
+    <Button
+        android:id="@+id/btn_show_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_make_call"
+        android:layout_alignStart="@+id/btn_make_call"
+        android:layout_below="@+id/btn_make_call"
+        android:text="@string/text_show_info" />
 </RelativeLayout>

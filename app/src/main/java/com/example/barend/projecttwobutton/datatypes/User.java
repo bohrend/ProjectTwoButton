@@ -3,7 +3,7 @@ package com.example.barend.projecttwobutton.datatypes;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.barend.projecttwobutton.backend.keys.JsonKeys;
+import com.example.barend.projecttwobutton.keys.JsonKeys;
 import com.example.barend.projecttwobutton.helpers.JsonHelper;
 
 import org.json.JSONArray;

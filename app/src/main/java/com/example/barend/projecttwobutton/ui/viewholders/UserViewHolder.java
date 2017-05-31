@@ -8,6 +8,8 @@ import com.example.barend.projecttwobutton.R;
 
 /**
  * Created by Barend on 2017/05/30.
+ *
+ * viewholder class for recyclerview
  */
 
 public class UserViewHolder extends RecyclerView.ViewHolder {

@@ -3,4 +3,10 @@
 
     <string name="text_make_call">Make call</string>
     <string name="text_show_info">Show info</string>
+    <string name="text_not_found">no user found</string>
+
+    <!--errors-->
+    <string name="text_error_no_internet">No internet connection</string>
+    <string name="text_cached_data_available">View cached data</string>
+    <string name="text_no_cached_data_available">Please check internet connection and try again</string>
 </resources>

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Barend on 2017/05/29.
+ *
  */
 
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
@@ -21,12 +22,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     private Context mContext;
     private ArrayList<User> mDataset;
 
-
     public UserAdapter(Context context, ArrayList<User> dataset) {
         this.mContext = context;
         this.mDataset = dataset;
     }
-
 
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

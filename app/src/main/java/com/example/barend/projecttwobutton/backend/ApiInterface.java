@@ -9,7 +9,6 @@ import com.google.gson.JsonElement;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Response;
 
-
 /**
  * Created by Barend on 2017/05/30.
  * <p>
@@ -75,7 +74,6 @@ public abstract class ApiInterface implements FutureCallback<Response<String>> {
             onFail();
         }
     }
-
 
     //method to parse data from server
     private void parseFromServer(Response<String> response) {

@@ -6,14 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-
 import com.example.barend.projecttwobutton.ui.activities.UserListActivity;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
+    private static final String sTestingQuery = "Samantha";
 
     //region members
     private Button mMakeCallButton;
@@ -51,9 +50,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Log.i(TAG, "OnShowInfoClickListener+onClick");
+            UserListActivity.startActivity(MainActivity.this, sTestingQuery);
         }
     }
 
-
     //endregion
+
+
+
 }

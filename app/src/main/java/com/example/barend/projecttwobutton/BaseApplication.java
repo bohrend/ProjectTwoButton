@@ -11,6 +11,8 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //entire apps settings will be configured here, for now only serverconfig
         ServerConfig.init();
     }
 }

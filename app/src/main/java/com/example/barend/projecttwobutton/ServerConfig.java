@@ -13,6 +13,6 @@ public class ServerConfig {
     }
 
     public static void init() {
-        BASE_URL = BuildConfig.url;
+        BASE_URL = BuildConfig.url; //points to module level build.gradle
     }
 }

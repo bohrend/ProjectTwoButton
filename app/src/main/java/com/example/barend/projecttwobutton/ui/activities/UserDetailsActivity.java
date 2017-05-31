@@ -10,6 +10,8 @@ import com.example.barend.projecttwobutton.keys.IntentKeys;
 
 /**
  * Created by Barend on 2017/05/29.
+ * <p>
+ * idea is to pass through userid, and display rest of details here, but then db or better storage needs be setup
  */
 
 public class UserDetailsActivity extends Activity {
@@ -21,12 +23,16 @@ public class UserDetailsActivity extends Activity {
     //endregion
 
     //region start activity
-    public static void startActivity(Context context, String userId) {
+    public static void startActivity(Context context, int userId) {
 
         Intent intent = new Intent(context, UserDetailsActivity.class);
         intent.putExtra(IntentKeys.EXTRA_USER_ID, userId);
 
         context.startActivity(intent);
+    }
+
+    public static void startActivity(Context context) {
+        startActivity(context, 0);
     }
     //endregion
 

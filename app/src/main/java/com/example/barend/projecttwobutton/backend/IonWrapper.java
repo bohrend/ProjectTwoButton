@@ -22,7 +22,7 @@ import javax.net.ssl.X509TrustManager;
  */
 
 public class IonWrapper {
-
+/*
     private static void nuke(Context context) {
         try {
             TrustManager[] trustManager = new TrustManager[]{
@@ -58,6 +58,7 @@ public class IonWrapper {
             e.printStackTrace();
         }
     }
+    */
 
     private static final String TAG = "IonWrapper";
 

@@ -3,9 +3,8 @@ package com.example.barend.projecttwobutton;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AlertDialog;
-import android.text.TextUtils;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -138,9 +137,6 @@ public class MainAssessmentActivity extends Activity {
 
             //will obvious show this to the user, but just for the sake of it trying to show as much different things as i possible can
             Log.d(TAG, errorMessage.toString());
-
-
-
         }
     }
 
